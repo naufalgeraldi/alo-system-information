@@ -62,7 +62,7 @@ function Login() {
               isSubmitting,
               /* and other goodies */
             }) => (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="px-4">
                 <input
                   type="email"
                   name="email"

@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import useQuery from "../../hook/useQuery";
 
 function Umum() {
+  const umum = useQuery();
+
+  console.log(umum);
+
   useEffect(() => {
     document.title = "Umum | ALO";
   });

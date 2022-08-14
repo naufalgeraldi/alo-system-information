@@ -1,8 +1,14 @@
 import React, { useEffect } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Table from "../../components/Table/Table";
+import useQuery3 from "../../hook/useQuery3";
+import { useSelector } from "react-redux";
 
 function Karyawan() {
+  const karyawan = useQuery3();
+
+  const data = useSelector((state) => state.karyawan.list);
+
   useEffect(() => {
     document.title = "Karyawan| ALO";
   });
@@ -33,26 +39,19 @@ function Karyawan() {
             </tr>
           </thead>
           <tbody>
-            <tr className="border-b border-t">
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-white"></td>
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white"></td>
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white"></td>
-            </tr>
-            <tr className="border-b border-t">
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-white"></td>
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white"></td>
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white"></td>
-            </tr>
-            <tr className="border-b border-t">
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-white"></td>
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white"></td>
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white"></td>
-            </tr>
-            <tr className="border-b border-t">
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-white"></td>
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white"></td>
-              <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white"></td>
-            </tr>
+            {data.map((item, index) => (
+              <tr className="border-b border-t">
+                <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white">
+                  {index + 1}
+                </td>
+                <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white">
+                  {item.ID}
+                </td>
+                <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-white">
+                  {item.Nama}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </Sidebar>

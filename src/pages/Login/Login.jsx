@@ -31,16 +31,16 @@ function Login() {
         <img
           src={Hero}
           alt="hero"
-          className="h-[100px] w-full object-cover overflow-hidden sm:h-[200px] lg:h-screen lg:w-full"
+          className="h-[100px] w-full overflow-hidden object-cover sm:h-[200px] lg:h-screen lg:w-full"
         />
       </div>
-      <div className="mt-10 flex w-full items-center justify-center lg:mt-0 lg:w-1/3">
+      <div className="mt-10 flex w-full items-center justify-center dark:bg-[#171717] lg:mt-0 lg:w-1/3">
         <div className="flex w-full flex-col md:px-36 lg:px-[63px]">
-          <h2 className="mb-1 text-3xl font-bold text-center text-[#17539B]">
+          <h2 className="mb-1 text-center text-3xl font-bold text-[#17539B]">
             Masuk
           </h2>
-          <div className="w-full flex">
-            <p className=" text-[15px] text-[#737373] mb-[44px] h-[38px] text-center px-20">
+          <div className="flex w-full">
+            <p className=" mb-[44px] h-[38px] px-20 text-center text-[15px] text-[#737373] dark:text-white">
               Masuk dengan akun admin yang telah dibuat
             </p>
           </div>
@@ -68,7 +68,7 @@ function Login() {
                   name="email"
                   id="email"
                   placeholder="Email"
-                  className="my-2 block h-[48px] w-full rounded-2xl border border-[#737373] py-3 px-4 placeholder:text-md text-[#737373]"
+                  className="placeholder:text-md my-2 block h-[48px] w-full rounded-2xl border border-[#737373] py-3 px-4 text-[#737373] dark:border-white dark:bg-[#171717] dark:placeholder:text-white"
                   onBlur={handleBlur}
                   value={values.email}
                   onChange={handleChange}
@@ -82,7 +82,7 @@ function Login() {
                     name="password"
                     id="password"
                     placeholder="Password"
-                    className="my-2 block h-[48px] w-full rounded-2xl border border-[#737373] py-3 px-4 placeholder:text-md text-[#737373]"
+                    className="placeholder:text-md my-2 block h-[48px] w-full rounded-2xl border border-[#737373] py-3 px-4 text-[#737373] dark:border-white dark:bg-[#171717] dark:placeholder:text-white"
                     onBlur={handleBlur}
                     value={values.password}
                     onChange={handleChange}
@@ -93,9 +93,9 @@ function Login() {
                     className="absolute right-3 top-5"
                   >
                     {passwordType === "password" ? (
-                      <AiOutlineEyeInvisible className="text-2xl text-neutral-03" />
+                      <AiOutlineEyeInvisible className="text-neutral-03 text-2xl" />
                     ) : (
-                      <AiOutlineEye className="text-2xl text-neutral-03" />
+                      <AiOutlineEye className="text-neutral-03 text-2xl" />
                     )}
                   </button>
                 </div>
@@ -105,7 +105,7 @@ function Login() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="mt-6 mb-4 block h-[48px] w-full rounded-2xl bg-[#17539B] py-3 px-6 text-center text-white transition duration-300 hover:bg-olive-02 hover:text-neutral-04"
+                  className="hover:bg-olive-02 hover:text-neutral-04 mt-6 mb-4 block h-[48px] w-full rounded-2xl bg-[#17539B] py-3 px-6 text-center text-white transition duration-300"
                 >
                   {" "}
                   Masuk
@@ -113,7 +113,7 @@ function Login() {
                 <span className="flex justify-center text-sm">
                   <Link
                     to="/forgot"
-                    className="mx-2 text-sm text-[#737373] hover:underline"
+                    className="mx-2 text-sm text-[#737373] hover:underline dark:text-white"
                   >
                     Lupa Password?
                   </Link>

@@ -1,134 +1,98 @@
-import React, { useState } from "react";
-import Logo from "../../assets/image/logo.png";
-import iconSidik from "../../assets/icons/sidik.png";
-import iconSidikHover from "../../assets/icons/sidik-hover.png";
-import iconToday from "../../assets/icons/today.png";
-import iconTodayHover from "../../assets/icons/today-hover.png";
-import iconMonth from "../../assets/icons/month.png";
-import iconMonthHover from "../../assets/icons/month-hover.png";
-import iconConstruction from "../../assets/icons/construction.png";
-import iconConstructionHover from "../../assets/icons/construction-hover.png";
-import iconReport from "../../assets/icons/report.png";
-import iconReportHover from "../../assets/icons/report-hover.png";
+import React from "react";
 import iconLogOut from "../../assets/icons/log-out.png";
 import { Link } from "react-router-dom";
+import Toggle from "../Toggle/Toggle";
+import { FaFingerprint } from "react-icons/fa";
+import {
+  MdOutlineReport,
+  MdOutlineEngineering,
+  MdOutlineToday,
+} from "react-icons/md";
+import { BsCalendarMonth } from "react-icons/bs";
 
 function Sidebar(props) {
-  const [over, setOver] = useState(false);
-  const [over2, setOver2] = useState(false);
-  const [over3, setOver3] = useState(false);
-  const [over4, setOver4] = useState(false);
-  const [over5, setOver5] = useState(false);
   return (
     <>
       <div className="flex">
-        <div className="w-[320px] px-[25px] h-screen bg-white fixed">
-          <img src={Logo} alt="logo" className="mt-10" />
-          <div className="mt-[50px] flex flex-col h-[620px] justify-between">
+        <div className="fixed h-screen w-[320px] bg-white px-[25px] dark:bg-[#202020]">
+          <div className="mt-[40px] flex h-[42px] w-[270px] items-center justify-center px-8">
+            <FaFingerprint className="mr-3 h-[55px] w-[55px] dark:text-white" />
+            <h1 className="h-[42px] text-lg font-bold uppercase leading-5 text-[#202020] dark:text-white">
+              administrator Presensi alo
+            </h1>
+          </div>
+          <div className="mt-[40px] flex h-[620px] flex-col justify-between">
             <div>
               <Link to="/umum">
-                <button
-                  className="w-[266px] h-[50px] px-[14px] py-[17px] rounded-[15px] bg-white flex items-center hover:bg-[#2A6EB8] group"
-                  onMouseOver={() => setOver(true)}
-                  onMouseOut={() => setOver(false)}
-                >
-                  <div className="w-[30px] flex justify-center">
-                    <img
-                      src={over ? iconSidikHover : iconSidik}
-                      alt=""
-                      className="w-[19.43px] h-[20.51px]"
-                    />
+                <button className="group flex h-[50px] w-[266px] items-center rounded-[15px] px-[14px] py-[17px] hover:bg-[#2A6EB8]">
+                  <div className="flex w-[30px] justify-center">
+                    <FaFingerprint className="text-xl group-hover:text-white dark:text-white" />
                   </div>
-                  <span className="text-[#202020] text-[15px] font-medium ml-3 group-hover:text-white">
+                  <span className="ml-3 text-[15px] font-medium text-[#202020] group-hover:text-white dark:text-white">
                     Umum
                   </span>
                 </button>
               </Link>
               <Link to="/presensihari">
-                <button
-                  className="w-[266px] h-[50px] px-[14px] py-[17px] rounded-[15px] bg-white flex items-center hover:bg-[#2A6EB8] group"
-                  onMouseOver={() => setOver2(true)}
-                  onMouseOut={() => setOver2(false)}
-                >
-                  <div className="w-[30px] flex justify-center">
-                    <img src={over2 ? iconTodayHover : iconToday} alt="" />
+                <button className="group flex h-[50px] w-[266px] items-center rounded-[15px] px-[14px] py-[17px] hover:bg-[#2A6EB8]">
+                  <div className="flex w-[30px] justify-center">
+                    <MdOutlineToday className="text-xl group-hover:text-white dark:text-white" />
                   </div>
-                  <span className="text-[#202020] text-[15px] font-medium ml-3 group-hover:text-white">
+                  <span className="ml-3 text-[15px] font-medium text-[#202020] group-hover:text-white dark:text-white">
                     Presensi hari ini
                   </span>
                 </button>
               </Link>
               <Link to="/presensibulan">
-                <button
-                  className="w-[266px] h-[50px] px-[14px] py-[17px] rounded-[15px] bg-white flex items-center hover:bg-[#2A6EB8] group"
-                  onMouseOver={() => setOver3(true)}
-                  onMouseOut={() => setOver3(false)}
-                >
-                  <div className="w-[30px] flex justify-center">
-                    <img
-                      src={over3 ? iconMonthHover : iconMonth}
-                      alt=""
-                      className="-ml-1"
-                    />
+                <button className="group flex h-[50px] w-[266px] items-center rounded-[15px] px-[14px] py-[17px] hover:bg-[#2A6EB8]">
+                  <div className="flex w-[30px] justify-center">
+                    <BsCalendarMonth className="text-lg group-hover:text-white dark:text-white" />
                   </div>
-                  <span className="text-[#202020] text-[15px] font-medium ml-3 group-hover:text-white">
+                  <span className="ml-3 text-[15px] font-medium text-[#202020] group-hover:text-white dark:text-white">
                     Presensi satu bulan
                   </span>
                 </button>
               </Link>
               <Link to="/karyawan">
-                <button
-                  className="w-[266px] h-[50px] px-[14px] py-[17px] rounded-[15px] bg-white flex items-center hover:bg-[#2A6EB8] group"
-                  onMouseOver={() => setOver4(true)}
-                  onMouseOut={() => setOver4(false)}
-                >
-                  <div className="w-[30px] flex justify-center">
-                    <img
-                      src={over4 ? iconConstructionHover : iconConstruction}
-                      alt=""
-                      className="w-[20px] h-[20px]"
-                    />
+                <button className="group flex h-[50px] w-[266px] items-center rounded-[15px] px-[14px] py-[17px] hover:bg-[#2A6EB8]">
+                  <div className="flex w-[30px] justify-center">
+                    <MdOutlineEngineering className="text-xl group-hover:text-white dark:text-white" />
                   </div>
-                  <span className="text-[#202020] text-[15px] font-medium ml-3 group-hover:text-white">
+                  <span className="ml-3 text-[15px] font-medium text-[#202020] group-hover:text-white dark:text-white">
                     Jam Kerja Karyawan
                   </span>
                 </button>
               </Link>
               <Link to="/laporan">
-                <button
-                  className="w-[266px] h-[50px] px-[14px] py-[17px] rounded-[15px] bg-white flex items-center hover:bg-[#2A6EB8] group"
-                  onMouseOver={() => setOver5(true)}
-                  onMouseOut={() => setOver5(false)}
-                >
-                  <div className="w-[30px] flex justify-center">
-                    <img
-                      src={over5 ? iconReportHover : iconReport}
-                      alt=""
-                      className="w-[19px] h-[19px]"
-                    />
+                <button className="group flex h-[50px] w-[266px] items-center rounded-[15px] px-[14px] py-[17px] hover:bg-[#2A6EB8]">
+                  <div className="flex w-[30px] justify-center">
+                    <MdOutlineReport className="text-2xl group-hover:text-white dark:text-white" />
                   </div>
-                  <span className="text-[#202020] text-[15px] font-medium ml-3 group-hover:text-white">
+                  <span className="ml-3 text-[15px] font-medium text-[#202020] group-hover:text-white dark:text-white">
                     Laporan
                   </span>
                 </button>
               </Link>
             </div>
             <div>
-              <button className="w-[266px] h-[50px] px-[14px] py-[17px] rounded-[15px] bg-[#ED3131] flex items-center hover:bg-[#f94848]">
-                <div className="w-[30px] flex justify-center">
-                  <img src={iconLogOut} alt="" className="w-[19px] h-[19px]" />
+              <button className="flex h-[50px] w-[266px] items-center rounded-[15px] bg-[#ED3131] px-[14px] py-[17px] hover:bg-[#f94848]">
+                <div className="flex w-[30px] justify-center">
+                  <img src={iconLogOut} alt="" className="h-[19px] w-[19px]" />
                 </div>
-                <span className="text-white text-[15px] font-medium ml-3 group-hover:text-white">
+                <span className="ml-3 text-[15px] font-medium text-white group-hover:text-white">
                   Keluar
                 </span>
               </button>
             </div>
           </div>
         </div>
-        <div className="h-[2002px] bg-[#F4F4F4] pt-[60px] pl-[75px] pr-[77px] w-[1267px] ml-[320px]">
-          <h2 className="text-[30px] text-[#2A6EB8] w-full h-[34px] uppercase font-bold">
-            {props.name}
-          </h2>
+        <div className="ml-[320px] h-[2002px] w-[1267px] bg-[#F4F4F4] pt-[60px] pl-[75px] pr-[77px] dark:bg-[#292929]">
+          <div className="flex justify-between">
+            <h2 className="h-[34px] w-full text-[30px] font-bold uppercase text-[#2A6EB8]">
+              {props.name}
+            </h2>
+            <Toggle />
+          </div>
           {props.children}
         </div>
       </div>

@@ -3,6 +3,8 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import Table from "../../components/Table/Table";
 import { useSelector } from "react-redux";
 import useQuery2 from "../../hook/useQuery2";
+import Toggle from "../../components/Toggle/Toggle";
+
 
 function PresensiBulan() {
   const bulan = useQuery2();
@@ -16,7 +18,14 @@ function PresensiBulan() {
   const data = useSelector((state) => state.bulan.list);
   return (
     <>
-      <Sidebar name="presensi satu bulan">
+      <Sidebar>
+      <div className="ml-[320px] h-full w-full bg-[#F4F4F4] pt-[60px] pl-[75px] pr-[77px] dark:bg-[#292929]">
+          <div className="flex justify-between">
+            <h2 className="h-[34px] w-full text-[30px] font-bold uppercase text-[#2A6EB8]">
+            PRESENSI SATU BULAN
+            </h2>
+            <Toggle />
+            </div>
         <Table>
           <thead className="border-b">
             <tr>
@@ -65,6 +74,7 @@ function PresensiBulan() {
             ))}
           </tbody>
         </Table>
+        </div>
       </Sidebar>
     </>
   );

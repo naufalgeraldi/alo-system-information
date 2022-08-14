@@ -1,7 +1,7 @@
 import React from "react";
 import iconLogOut from "../../assets/icons/log-out.png";
 import { Link } from "react-router-dom";
-import Toggle from "../Toggle/Toggle";
+// import Toggle from "../Toggle/Toggle";
 import { FaFingerprint } from "react-icons/fa";
 import {
   MdOutlineReport,
@@ -9,6 +9,7 @@ import {
   MdOutlineToday,
 } from "react-icons/md";
 import { BsCalendarMonth } from "react-icons/bs";
+import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 
 function Sidebar(props) {
   return (
@@ -59,7 +60,7 @@ function Sidebar(props) {
                     <MdOutlineEngineering className="text-xl group-hover:text-white dark:text-white" />
                   </div>
                   <span className="ml-3 text-[15px] font-medium text-[#202020] group-hover:text-white dark:text-white">
-                    Jam Kerja Karyawan
+                    Daftar Karyawan
                   </span>
                 </button>
               </Link>
@@ -86,15 +87,7 @@ function Sidebar(props) {
             </div>
           </div>
         </div>
-        <div className="ml-[320px] h-screen w-[1267px] bg-[#F4F4F4] pt-[60px] pl-[75px] pr-[77px] dark:bg-[#292929]">
-          <div className="flex justify-between">
-            <h2 className="h-[34px] w-full text-[30px] font-bold uppercase text-[#2A6EB8]">
-              {props.name}
-            </h2>
-            <Toggle />
-          </div>
-          {props.children}
-        </div>
+        {props.children}
       </div>
     </>
   );

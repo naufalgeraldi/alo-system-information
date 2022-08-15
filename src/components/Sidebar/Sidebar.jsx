@@ -1,6 +1,6 @@
 import React from "react";
 import iconLogOut from "../../assets/icons/log-out.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import Toggle from "../Toggle/Toggle";
 import { FaFingerprint } from "react-icons/fa";
 import {
@@ -9,9 +9,19 @@ import {
   MdOutlineToday,
 } from "react-icons/md";
 import { BsCalendarMonth } from "react-icons/bs";
-import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
+import axios from "axios";
 
 function Sidebar(props) {
+  const navigate = useNavigate();
+
+  const Logout = async () => {
+    try {
+      await axios.delete("http://localhost:5000/logout");
+      localStorage.removeItem("token");
+      navigate("/", { replace: true });
+    } catch (error) {}
+  };
+
   return (
     <>
       <div className="flex">
@@ -76,7 +86,10 @@ function Sidebar(props) {
               </Link>
             </div>
             <div>
-              <button className="flex h-[50px] w-[266px] items-center rounded-[15px] bg-[#ED3131] px-[14px] py-[17px] hover:bg-[#f94848]">
+              <button
+                className="flex h-[50px] w-[266px] items-center rounded-[15px] bg-[#ED3131] px-[14px] py-[17px] hover:bg-[#f94848]"
+                onClick={Logout}
+              >
                 <div className="flex w-[30px] justify-center">
                   <img src={iconLogOut} alt="" className="h-[19px] w-[19px]" />
                 </div>

@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Toggle from "../../components/Toggle/Toggle";
 
 function Karyawan() {
+  // eslint-disable-next-line no-unused-vars
   const karyawan = useQuery3();
 
   const data = useSelector((state) => state.karyawan.list);

@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Hero from "../../assets/image/hero.png";
+import axios from "axios";
 
 function Login() {
   const [passwordType, setPasswordType] = useState("password");
+  const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = "Login | ALO";
+    if (localStorage.getItem("token")) {
+      navigate("/umum");
+    }
   });
 
   const togglePassword = () => {
@@ -36,6 +42,9 @@ function Login() {
       </div>
       <div className="mt-10 flex w-full items-center justify-center dark:bg-[#171717] lg:mt-0 lg:w-1/3">
         <div className="flex w-full flex-col md:px-36 lg:px-[63px]">
+          <p className="my-2 bg-red-200 px-3 py-2 text-center text-red-500">
+            {msg}
+          </p>
           <h2 className="mb-1 text-center text-3xl font-bold text-[#17539B]">
             Masuk
           </h2>
@@ -50,7 +59,26 @@ function Login() {
               password: "",
             }}
             validationSchema={LoginSchema}
-            onSubmit={async (values) => {}}
+            onSubmit={async (values) => {
+              try {
+                const res = await axios({
+                  method: "post",
+                  url: "http://localhost:5000/login",
+                  data: values,
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                });
+                if (res.status === 200) {
+                  localStorage.setItem("token", res.data.accessToken);
+                  navigate("/umum", { replace: true });
+                }
+              } catch (error) {
+                if (error.response) {
+                  setMsg("Email atau Password salah");
+                }
+              }
+            }}
           >
             {({
               values,

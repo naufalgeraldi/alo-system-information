@@ -4,9 +4,8 @@ import useQuery from "../../hook/useQuery";
 import Toggle from "../../components/Toggle/Toggle";
 
 function Umum() {
+  // eslint-disable-next-line no-unused-vars
   const umum = useQuery();
-
-  console.log(umum);
 
   useEffect(() => {
     document.title = "Umum | ALO";
